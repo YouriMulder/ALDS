@@ -1,4 +1,14 @@
+# Name : Youri Mulder
+# Studentnumber : 1716390
+# Class : V2C
+# Teacher : Frits Dannenberg
+
 import sys
+
+# Testing done:
+# Checked if the result is what I expected.
+#
+# Used different maxNumber types like: str, list, float and int to check te assert.
 
 """
 Function to convert numbers in a string to an list of integer.
@@ -16,7 +26,6 @@ list
 """
 def getNumbers(s):
 	assert type(s) is str, "Requires a string: " + str(type(s))
-	print(str(type(s)))
 	numbers = []
 	number = 0
 	for element in s:

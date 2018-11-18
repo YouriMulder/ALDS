@@ -1,7 +1,22 @@
+# naam : Youri Mulder
+# studentnummer : 1716390
+# klas : V2C
+# Docent : Frits Dannenberg
+
+# Name : Youri Mulder
+# Studentnumber : 1716390
+# Class : V2C
+# Teacher : Frits Dannenberg
+
+# Testing done:
+# Placed the function call in a for loop to check if the result is almost the same every time.
+# It should not be exactly the same, but it should be close.
+#
+# Used different amountOfLists and amountOfPeople types like: str, list, float and int to check the asserts.
+
 import sys
 from random import randint
 
-#Genereer honderd keer een lijst van 23 random gehele getallen tussen de 1 en de 365.
 """
 Function to approximate the amount of times 
 two people have the same birthday in a group.

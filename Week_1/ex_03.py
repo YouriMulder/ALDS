@@ -1,3 +1,14 @@
+# Name : Youri Mulder
+# Studentnumber : 1716390
+# Class : V2C
+# Teacher : Frits Dannenberg
+
+# Testing done:
+# Compared to https://primes.utm.edu/lists/small/10000.txt
+# Used different maxNumbers and compared those against the site.
+#
+# Used different maxNumber parameter types like: str, list, float and int to check the assert.
+
 """
 Function to generate a list of prime numbers up to a given number.
 This is done using the sieve of Eratosthenes algorithm.

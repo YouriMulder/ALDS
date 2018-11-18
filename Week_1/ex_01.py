@@ -1,3 +1,13 @@
+# Name : Youri Mulder
+# Studentnumber : 1716390
+# Class : V2C
+# Teacher : Frits Dannenberg
+
+# Testing done:
+# Checked if the printed value is what I expected.
+# Used different a parameter types like: str, list, float and int to check the asserts.
+
+
 import sys
 
 """
