@@ -1,8 +1,3 @@
-# naam : Youri Mulder
-# studentnummer : 1716390
-# klas : V2C
-# Docent : Frits Dannenberg
-
 # Name : Youri Mulder
 # Studentnumber : 1716390
 # Class : V2C
