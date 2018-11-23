@@ -27,19 +27,24 @@ list
 def getNumbers(s):
 	assert type(s) is str, "Requires a string: " + str(type(s))
 	numbers = []
-	number = 0
+	number = None
 	for element in s:
 		if element >= '0' and element <= '9':
+			if number is None:
+				number = 0
 			number = (number * 10) + int(element)
 		elif number:
 			numbers.append(number)
-			number = 0
+			number = None
+	
+	if number is not None:
+		numbers.append(number)
 
 	return numbers
 
 
 try:
-	print(getNumbers("een123zin45 6met-632meerdere+7777getallen"))
+	print(getNumbers("een123zin45 6met-632meerdere+7777getallen12"))
 	print(getNumbers("een123zin45" + 'dit is een test 123' + "c++17_uint8_t"))
 	print(getNumbers(10))
 	print(getNumbers(10.1))

@@ -10,6 +10,7 @@ import time
 '''
 class MaxHeap():
 	def __init__(self, myList):
+		# insert not sorted
 		self.nodes = myList
 		self.sortedList = list()
 	
@@ -50,7 +51,7 @@ class MaxHeap():
 # 9999 max recusion depth how to fix?
 # for loop vs recursion
 for i in range(4):
-	test = 10000
+	test = 10 * 10
 	sys.setrecursionlimit(99999)
 	mx = MaxHeap([random.randint(0, test * test) for i in range(test)])
 
@@ -59,6 +60,8 @@ for i in range(4):
 	sortedList = mx.heapify()
 	end = time.time()
 	print("time", end - start)
+
+	print(sortedList)
 
 #for x in sortedList:
 #	print(x)
