@@ -1,0 +1,19 @@
+
+Ga na hoe vaak twee elementen worden vergeleken bij een lijst met 10.000 elementen?
+Index in het midden:
+	max:  142276
+	min:  90739
+	amount of tests:  1000
+
+Random index:
+	max:  140617
+	min:  94600
+	amount of tests:  1000
+
+Index van de minimale waarde in een sublist
+	max:  39699146
+	min:  39017492
+	amount of tests:  25
+	
+	bron: http://bigocheatsheet.com/
+	quicksort average: n log(n)
