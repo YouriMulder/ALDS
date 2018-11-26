@@ -1,3 +1,6 @@
+# Studentnumber : 1716390
+# Class : V2C
+
 from ex_02 import myStack
 
 """

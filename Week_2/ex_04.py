@@ -1,3 +1,6 @@
+# Studentnumber : 1716390
+# Class : V2C
+
 """
 Function to get the maximum value of a 
 list full of integers or/and floats.

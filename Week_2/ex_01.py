@@ -1,3 +1,6 @@
+# Studentnumber : 1716390
+# Class : V2C
+
 """
 Function to calculate the power of a given digit 
 using a base and exponent.

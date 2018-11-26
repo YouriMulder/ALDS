@@ -1,3 +1,5 @@
+# Studentnumber : 1716390
+# Class : V2C
 
 Ga na hoe vaak twee elementen worden vergeleken bij een lijst met 10.000 elementen?
 Index in het midden:

@@ -1,3 +1,6 @@
+# Studentnumber : 1716390
+# Class : V2C
+
 def cookies(k, A):
 	counter = 0
 	while len(A) > 1 and (min(A) < k):

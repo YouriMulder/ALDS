@@ -1,3 +1,5 @@
+# Studentnumber : 1716390
+# Class : V2C
 
 class myStack:
 	"""
