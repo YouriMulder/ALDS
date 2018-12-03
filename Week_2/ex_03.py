@@ -36,6 +36,9 @@ def checkBrackets(bracketsString):
 			elif bracketsString[index] == pairs[pair][1]:
 				if mS.pop() is not pairs[pair][0]:
 					return False
+
+	if not mS.isEmpty():
+		return False
 	return True
 
 if __name__ == "__main__":
@@ -54,6 +57,7 @@ if __name__ == "__main__":
 	testStrings.append("(])[")
 	testStrings.append("()[]{}")
 	testStrings.append(")([]")
+	testStrings.append("(()")
 
 	for testString in testStrings:
 		print(checkBrackets(testString))
