@@ -52,7 +52,7 @@ class TrieNode:
 
 		return None
 
-		"""
+	"""
 	Method to add a new child to the node.
 
 	Parameters
@@ -67,7 +67,7 @@ class TrieNode:
 	def addChild(self, child):
 		self.childs.append(child)
 
-		"""
+	"""
 	Method to get a specific TrieNode using the value of the sequence of nodes.
 
 	Parameters
@@ -84,7 +84,6 @@ class TrieNode:
 	Child/None
 		Returns a child when a child with the given sequence of the value is found.
 	"""
-	
 	def insert(self, value, valueIndex=0):
 		if valueIndex == len(value):
 			self.frequency += 1
