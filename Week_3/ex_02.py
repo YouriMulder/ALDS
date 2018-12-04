@@ -13,7 +13,6 @@ class ListNode:
 	nextNode : ListNode
 		The next node in the linked list.
 	"""
-
 	def __init__(self,data,next_node):
 		self.data = data
 		self.next = next_node

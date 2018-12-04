@@ -4,6 +4,18 @@
 from trie import Trie
 from trie import TrieNode
 
+"""
+Function used to transform a list of word into a dictonary with the frequency of the words.
+
+Parameters
+----------
+text : str
+	The text you want to get the frequency of the words of.
+
+Returns
+-------
+None
+"""
 def getDictOfWords(text):
 	words = dict()
 	startWordIndex = 0
@@ -27,6 +39,24 @@ def getDictOfWords(text):
 	return words
 
 
+"""
+Function to write the output of get DictOfWords to a given file.
+
+Parameters
+----------
+inputFile : str
+	The file you want to get the frequency of the words of.
+
+
+outputFile : str
+	The file you want to write the output of DictOfWords to.
+
+Returns
+-------
+boolean
+    Boolean containing True when the position is possible.
+    If not possible the boolean contains False.
+"""
 def wordCountToFileUsingDict(inputFile, outputFile):
 	inputFile = open(inputFile, "r")
 	text = inputFile.readlines()
@@ -38,6 +68,25 @@ def wordCountToFileUsingDict(inputFile, outputFile):
 		outputFile.write(str(key) + " " + str(value) + "\n")
 	outputFile.close()
 
+"""
+Function to write the output of a datastructure trie 
+with all the words from a file to a given file.
+
+Parameters
+----------
+inputFile : str
+	The file you want to get the frequency of the words of.
+
+
+outputFile : str
+	The file you want to write the output of DictOfWords to.
+
+Returns
+-------
+boolean
+    Boolean containing True when the position is possible.
+    If not possible the boolean contains False.
+"""
 def wordCountToFileUsingTrie(inputFile, outputFile):
 	inputFile = open(inputFile, "r")
 	text = inputFile.readlines()

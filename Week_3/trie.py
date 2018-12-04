@@ -2,16 +2,48 @@
 # Class : V2C
 
 class TrieWord:
+	"""
+	Constructor of the TrieWord class.
+
+	Word is the value of the TrieNode.
+	Frequency is the amount of times that word occurs in the Trie.
+	"""
 	def __init__(self, word, frequency):
 		self.word = word
 		self.frequency = frequency
 
 class TrieNode:
+	"""
+	Constructor of the TrieNode class.
+
+	Value is the value of the node in the Trie.
+	Frequency is the amount of times that sequence of values occurs in the Trie.
+	Childs is all the nodes under the current node.
+	"""	
 	def __init__(self, value=None, frequency=0, childs=[]):
 		self.value = value
 		self.frequency = frequency
 		self.childs = childs
 
+
+	"""
+	Method to get a specific TrieNode using the value of the sequence of nodes.
+
+	Parameters
+	----------
+	value : unknown
+		The value you want to search in the tree.
+		This is the whole sequence of nodes.
+
+	valueIndex : integer 
+		The current index in the value we want to check if it's the value of the node.
+
+	Returns
+	-------
+	Child/None
+		Returns a child when a child with the given sequence of the value is found.
+		If not found the method returns None
+	"""
 	def getChildUsingValue(self, value, valueIndex):
 		if valueIndex < len(value):
 			for child in self.childs:
@@ -20,10 +52,38 @@ class TrieNode:
 
 		return None
 
+		"""
+	Method to add a new child to the node.
+
+	Parameters
+	----------
+	child : TrieNode
+		The TrieNode you want to add to the childs of this TrieNode.
+
+	Returns
+	-------
+	None
+	"""
 	def addChild(self, child):
 		self.childs.append(child)
 
+		"""
+	Method to get a specific TrieNode using the value of the sequence of nodes.
 
+	Parameters
+	----------
+	value : unknown
+		The value you want to search in the tree.
+		This is the whole sequence of nodes.
+
+	valueIndex : integer 
+		The current index in the value we want to check if it's the value of the node.
+
+	Returns
+	-------
+	Child/None
+		Returns a child when a child with the given sequence of the value is found.
+		
 	def insert(self, value, valueIndex=0):
 		if valueIndex == len(value):
 			self.frequency += 1
