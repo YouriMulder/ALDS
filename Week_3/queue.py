@@ -1,3 +1,6 @@
+# Studentnumber : 1716390
+# Class : V2C
+
 class Queue(list):
 	def __init__(self, elements=[]):
 		list.__init__(self, elements)

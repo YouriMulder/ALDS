@@ -1,16 +1,54 @@
+# Studentnumber : 1716390
+# Class : V2C
+
 class ListNode:
+	"""
+	Constructor of the ListNode class.
+	
+	Parameters
+	----------
+	data : unknown
+		The data you want to store the node.
+
+	nextNode : ListNode
+		The next node in the linked list.
+	"""
+
 	def __init__(self,data,next_node):
 		self.data = data
 		self.next = next_node
 
+	"""
+	Method to print the data of a node.
+	
+	Returns
+	-------
+	str
+		string containing the value stored in data
+	"""
 	def __repr__(self):
 		return str(self.data)
 
 class MyCirculairLinkedList:
+	
+	"""
+	Constructor of the myCirculairLinkedList class.
+	Head is the start of the linked list.
+	Tail is the end of the linked List.
+	"""
+
 	def __init__(self):
 		self.head = None
 		self.tail = None
-
+	
+	"""
+	Method to print the data of all the nodes in the linked list.
+	
+	Returns
+	-------
+	str
+		string containing the values of all the nodes in the linked list.
+	"""
 	def __repr__(self):
 		s = ''
 		current = self.head
@@ -24,6 +62,15 @@ class MyCirculairLinkedList:
 			s = 'empty list'
 		return s
 
+	"""
+	Method to check whether the given position i is possible.
+	This should be a positions where the queen can't be attacked by others.
+
+	Parameters
+	----------
+	e : unknown (Didn't choose the name myself. Was given in the reader)
+		The value you want to store in the node you are adding to the linked list.
+	"""
 	def addLast(self,e):
 		if not self.head: # self.head == None:
 			self.head = ListNode(e,None)
@@ -37,6 +84,16 @@ class MyCirculairLinkedList:
 			self.tail.next = n
 			self.tail = self.tail.next
 
+	
+	"""
+	Method to delete a node by value.
+	The first item containing this value will be deleted.
+
+	Parameters
+	----------
+	e : unknown (Didn't choose the name myself. Was given in the reader)
+		The value you want to from linked list.
+	"""
 	def delete(self,e):
 		if self.head: # self.head != None:
 			if self.head.data == e:

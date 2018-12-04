@@ -1,4 +1,7 @@
-class TrieWord():
+# Studentnumber : 1716390
+# Class : V2C
+
+class TrieWord:
 	def __init__(self, word, frequency):
 		self.word = word
 		self.frequency = frequency

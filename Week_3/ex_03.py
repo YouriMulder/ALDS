@@ -1,3 +1,6 @@
+# Studentnumber : 1716390
+# Class : V2C
+
 from queue import Queue
 
 class BSTNode:
@@ -46,6 +49,22 @@ class BSTNode:
         return not found
 
 
+    """
+    Method to insert a given value into the BST.
+    Using child nodes of the current(self) node.
+    This method calls a recursive function using the root node.
+
+    Parameters
+    ----------
+    value : unkown
+        The element the BSTNode you want to add to the BST.
+    
+    Returns
+    -------
+    boolean
+        If the value was corretly inserted True.
+        Otherwise the boolean will be False.
+    """
     def rinsert(self, value):
         if self.element == value:
             return False
@@ -94,6 +113,21 @@ class BSTNode:
         else:
             return None
 
+    """
+    Method to search for a given node in the BST.
+    Using child nodes of the current(self) node.
+
+    Parameters
+    ----------
+    value : unkown
+        The element the BSTNode you're currently searching should have.
+    
+    Returns
+    -------
+    BSTNode/None
+        If the value is found as a BSTNode element the method returns the BSTNode.
+        Otherwise the method returns None.
+    """
     def rsearch(self, value):
         if self.element == value:
             return self
@@ -209,6 +243,23 @@ class BST:
         else:
             return None
 
+
+    """
+    Method to search for a given node in the BST.
+    Using child nodes of the current(self) node.
+    This method calls a recursive function using the root node.
+
+    Parameters
+    ----------
+    value : unkown
+        The element the BSTNode you're currently searching should have.
+    
+    Returns
+    -------
+    BSTNode/None
+        If the value is found as a BSTNode element the method returns the BSTNode.
+        Otherwise the method returns None.
+    """
     def rsearch(self, value):
         if self.root and value:
             return self.root.rsearch(value)
@@ -226,6 +277,22 @@ class BST:
         else:
             return False
 
+    """
+    Method to insert a given value into the BST.
+    Using child nodes of the current(self) node.
+    This method calls a recursive function using the root node.
+
+    Parameters
+    ----------
+    value : unkown
+        The element the BSTNode you want to add to the BST.
+    
+    Returns
+    -------
+    boolean
+        If the value was corretly inserted True.
+        Otherwise the boolean will be False.
+    """
     def rinsert(self, value):
         if value:
             if self.root:
@@ -257,12 +324,28 @@ class BST:
         else:
             return False
 
+
+    """
+    Method used to get the maximum value currently in the BST.
+
+    Returns
+    -------
+    unkown (any sortable value)
+        The highest value in the BST.
+    """
     def max(self):
         currentNode = self.root
         while(currentNode.right != None):
             currentNode = currentNode.right
         return currentNode.element
 
+    """
+    Method used to print all the elements on all the levels in the BST.
+
+    Returns
+    -------
+    None
+    """
     def showLevelOrder(self):
         levelQueue = Queue([self.root])
         newLevelAvailable = True
