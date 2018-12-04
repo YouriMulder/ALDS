@@ -73,7 +73,7 @@ class TrieNode:
 	Parameters
 	----------
 	value : unknown
-		The value you want to search in the tree.
+		The value you want to insert in the tree.
 		This is the whole sequence of nodes.
 
 	valueIndex : integer 
@@ -81,8 +81,8 @@ class TrieNode:
 
 	Returns
 	-------
-	Child/None
-		Returns a child when a child with the given sequence of the value is found.
+	Boolean
+		Returns True a sequence of nodes is found containing the given value.
 	"""
 	def insert(self, value, valueIndex=0):
 		if valueIndex == len(value):
@@ -97,6 +97,24 @@ class TrieNode:
 			self.addChild(newChild)
 			newChild.insert(value, valueIndex + 1)
 
+
+	"""
+	Method to search a TrieNode using the value of the sequence of nodes.
+
+	Parameters
+	----------
+	value : unknown
+		The value you want to search in the tree.
+		This is the whole sequence of nodes.
+
+	valueIndex : integer 
+		The current index in the value we want to check if it's the value of the node.
+
+	Returns
+	-------
+	Child/None
+		Returns a child when a child with the given sequence of the value is found.
+	"""
 	def search(self, value, valueIndex=0):
 		if valueIndex == len(value):
 			return self
@@ -107,34 +125,103 @@ class TrieNode:
 		else:
 			return None
 
-	def printWords(self, word=[], woorden=[]):
+	"""
+	Method to get all the words with their frequency in the Trie.
+
+	Parameters
+	----------
+	value : unknown
+		The value you want to search in the tree.
+		This is the whole sequence of nodes.
+
+	valueIndex : integer 
+		The current index in the value we want to check if it's the value of the node.
+
+	Returns
+	-------
+	Child/None
+		Returns a child when a child with the given sequence of the value is found.
+	"""
+	def getWords(self, word=[], words=[]):
 		if self.value != None:
 			word.append(self.value)
 		if self.frequency:
-			woorden.append(TrieWord(''.join(word), self.frequency))
+			words.append(TrieWord(''.join(word), self.frequency))
 		
 		if self.childs:
 			for child in self.childs:
-				child.printWords(word)
+				child.getWords(word)
 				word.pop()
 
-		return woorden
+		return words
 
 class Trie:
+	"""
+	Constructor of the Trie class.
+
+	Root is the root of the Trie
+	"""	
 	def __init__(self):
 		self.root = TrieNode()
 
+	"""
+	Method to insert a new value into the Trie.
+
+	Parameters
+	----------
+	value : unknown
+		The value you want to insert in the tree.
+		This is the whole sequence of nodes.
+
+	Returns
+	-------
+	None
+	"""
 	def insert(self, value):
 		value = value.lower()
 		self.root.insert(value)
 
+	"""
+	Method to search a TrieNode using the value of the sequence of nodes.
+
+	Parameters
+	----------
+	value : unknown
+		The value you want to search in the tree.
+		This is the whole sequence of nodes.
+
+	Returns
+	-------
+	TrieNode/None
+		Returns a TrieNode when the value has been found. Otherwise it will return None.
+	"""
 	def search(self, value):
 		value = value.lower()		
 		return self.root.search(value)
 
-	def print(self):
-		return self.root.printWords()
+	"""
+	Method to get all the words and frequencies in a Trie.
 
+	Returns
+	-------
+	list
+		Returns a list of TrieWords.
+	"""
+	def getWords(self):
+		return self.root.getWords()
+
+	"""
+	Method to add all the words to the tree from a given file.
+
+	Parameters
+	----------
+	inputFile : str
+		The inputFile is the path to the file where you want to get all the words of.
+
+	Returns
+	-------
+	None
+	"""
 	def addWordsFromFile(self, inputFile):
 		inputFile = open(inputFile, "r")
 		text = inputFile.readlines()
@@ -159,10 +246,22 @@ class Trie:
 				startWordIndex = currentIndex
 			currentIndex += 1
 
-	
+	"""
+	Method to export all the words with their frequencies to a file.
+
+	Parameters
+	----------
+	outputFile : str
+		The outputFile is the path to the file where you want to store all the words and frequencies.
+
+	Returns
+	-------
+	Child/None
+		Returns a child when a child with the given sequence of the value is found.
+	"""
 	def exportTreeToFile(self, outputFile):
 		outputFile = open(outputFile, "w")
-		words = self.print()
+		words = self.getWords()
 		for trieWord in words:
 			outputFile.write(str(trieWord.word) + " " + str(trieWord.frequency) + "\n")
 		outputFile.close()
