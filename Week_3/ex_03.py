@@ -351,29 +351,46 @@ class BST:
         newLevelAvailable = True
 
 
+        levels = []
         while newLevelAvailable:
             level = []
-            
             while len(levelQueue):
                 level.append(levelQueue.dequeue())
+
+            levels.append(level)
+
+            if level != [None] * len(level):
+                for node in level:
+                    if node:
+                        if node.left != None:
+                            levelQueue.append(node.left)
+                        else:
+                            levelQueue.append(None)
             
-            for node in level:
-                print(node.element, end=' ')
-
-            print()
-
-
-            for node in level:
-                if node.left != None:
-                    levelQueue.append(node.left)
-                
-                if node.right != None:
-                    levelQueue.append(node.right)
-                
-            if len(level) == 0:
+                        if node.right != None:
+                            levelQueue.append(node.right)
+                        else:
+                            levelQueue.append(None)
+                    else:
+                        levelQueue.append(None)
+            else:
                 newLevelAvailable = False
 
+        levelDepth = len(levels)
+        initialSpacing = levelDepth ** 2
 
+        for level in levels:
+     
+            for node in level:
+                print('', end=' ' * initialSpacing)
+                if node:
+                    print(node.element, end='')
+                    pass
+                else:
+                    print(' ', end='')
+                print('', end=' ' * initialSpacing)
+            print()
+            initialSpacing = int(initialSpacing*0.5)
 
 
 if __name__ == '__main__':
@@ -385,11 +402,17 @@ if __name__ == '__main__':
     print('----------------')
     b = BST([1,2,3,4,5,6,7,8,9,10])
     print(b)
+    print("Show level Order:")    
+    b.showLevelOrder()    
     print('----------------')
 
     print(b.max())
     b.rinsert(12)
     print(b)
+    print("Show level Order:")
+    b.showLevelOrder()
+
+
     print(b.max())
     print('----------------')
 
@@ -402,17 +425,11 @@ if __name__ == '__main__':
     print(b.rinsert(13))
     print(b.rinsert(5))
     print('----------------')
-    
+
+
+    print('----------------')
     print(b)
     print('----------------')
-
-    b.showLevelOrder()
-    print(b)
-    print('----------------')
-    
-
-
-"""
     b = BST([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
     print(b)
     node = b.search(3)
@@ -469,5 +486,3 @@ if __name__ == '__main__':
     b.delete(3)
     print(b)
     print('----------------')
-"""
-
