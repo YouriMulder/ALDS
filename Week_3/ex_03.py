@@ -347,34 +347,30 @@ class BST:
     None
     """
     def showLevelOrder(self):
-        levelQueue = Queue([self.root])
         newLevelAvailable = True
 
-
-        levels = []
+        levels = [[self.root]]
         while newLevelAvailable:
             level = []
-            while len(levelQueue):
-                level.append(levelQueue.dequeue())
 
-            levels.append(level)
-
-            if level != [None] * len(level):
-                for node in level:
-                    if node:
-                        if node.left != None:
-                            levelQueue.append(node.left)
-                        else:
-                            levelQueue.append(None)
-            
-                        if node.right != None:
-                            levelQueue.append(node.right)
-                        else:
-                            levelQueue.append(None)
+            for node in levels[-1]:
+                if node:
+                    if node.left != None:
+                        level.append(node.left)
                     else:
-                        levelQueue.append(None)
-            else:
+                        level.append(None)
+        
+                    if node.right != None:
+                        level.append(node.right)
+                    else:
+                        level.append(None)
+                else:
+                    level.append(None)
+            
+            if level == [None] * len(level):
                 newLevelAvailable = False
+            else:
+                levels.append(level)
 
         levelDepth = len(levels)
         initialSpacing = levelDepth ** 2
