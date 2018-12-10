@@ -94,8 +94,9 @@ class MyCirculairLinkedList:
 		The value you want to from linked list.
 	"""
 	def delete(self,e):
-		if self.head: # self.head != None:
+		if self.head: # self.head != None:		
 			if self.head.data == e:
+				
 				if self.head is self.tail:
 					self.head = None		
 				else:
@@ -107,8 +108,10 @@ class MyCirculairLinkedList:
 					self.tail.next = self.head			
 			else:
 				current = self.head
-				while current.next != None and current.next.data != e:
+				while current.next != None and current.next.data != e and current.next != self.head:
+		
 					current = current.next
+
 				if current.next != None:
 					current.next = current.next.next
 				if current.next == None:
@@ -119,11 +122,12 @@ class MyCirculairLinkedList:
 if __name__ == '__main__':
 	mylist =  MyCirculairLinkedList()
 
+	# test case according to feedback.
 	mylist.delete(2)
 	mylist.addLast(1)
-	print("Frits")
+	print("Test")
 	mylist.delete(2)
-	
+
 	mylist =  MyCirculairLinkedList()
 	print(mylist)
 	mylist.addLast(1)
@@ -162,5 +166,3 @@ if __name__ == '__main__':
 	print(mylist.head == None)
 	print(mylist.tail == None)
 	print(mylist)
-
-	
