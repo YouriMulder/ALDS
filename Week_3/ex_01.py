@@ -63,26 +63,21 @@ boolean
     Boolean containing True when the solutions where found.
     If not found the boolean contains False.
 """
-def rsearch(N):
-    global a
+def rsearch(N, a=[]):    
     for i in range(N): # cols (0, 1)
         if check(a,i):
             a.append(i)
-            if len(a) == N:
-                if a not in solutions:
-                    solutions.append(a)
-                    a = []
-                    rsearch(N)
-                    return True
+            if len(a) == N and a not in solutions:
+                solutions.append(list(a))
+                rsearch(N, a)
             else:
-                if rsearch(N):
+                if rsearch(N, a):
                     return True
             if len(a) > 0:
                 del a[-1] # verwijder laatste element
     
     return False
 
-a = [] # a geeft voor iedere rij de kolompositie aan
 solutions = []
 
 print(rsearch(8))

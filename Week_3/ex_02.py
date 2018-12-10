@@ -118,6 +118,13 @@ class MyCirculairLinkedList:
 
 if __name__ == '__main__':
 	mylist =  MyCirculairLinkedList()
+
+	mylist.delete(2)
+	mylist.addLast(1)
+	print("Frits")
+	mylist.delete(2)
+	
+	mylist =  MyCirculairLinkedList()
 	print(mylist)
 	mylist.addLast(1)
 	mylist.addLast(2)
