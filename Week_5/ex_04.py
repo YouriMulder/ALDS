@@ -66,16 +66,6 @@ def reverseGraph(G):
 	for vertex in edges(G):
 		G[vertex[0]].remove(vertex[1])
 		G[vertex[1]].append(vertex[0])
-		
-
-	# reversedGraph = dict()
-	# oldEdges = edges(G)
-	# oldVertices = vertices(G)
-	# print(oldEdges)
-	# for edge in oldEdges:
-	# 	if not reversedGraph.get(oldVertices[edge[0]]):
-	# 		reversedGraph[oldVertices[edge[0]]]
-	# 	reversedGraph[oldVertices[edge[0]].append(oldVertices[edge[2]])
 
 def isStronglyConnected(G, isReversed = False):
 	V = vertices(G)
