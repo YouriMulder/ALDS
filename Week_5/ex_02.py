@@ -45,9 +45,9 @@ def noCycles(G):
 				v.predecessor = u  # v krijgt het attribuut 'predecessor'
 				q.enqueue(v)
 			elif u.predecessor != v:
-				return True 
+				return False 
 
-	return False
+	return True
 
 v = [Vertex(i) for i in range(8)]
 GNoCycle = {
